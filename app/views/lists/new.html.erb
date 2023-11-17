@@ -1,0 +1,17 @@
+
+
+<div class="container p-5">
+<%= simple_form_for(@list) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <h1>create a new list</h1>
+  <div class="form-inputs">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.button :submit, class: "btn btn-primary" %>
+  <%=link_to "home", lists_path, class: "btn btn-primary" %>
+
+<% end %>
+</div>

@@ -1,0 +1,23 @@
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <div>
+      <h1><%= @list.name %></h1>
+
+  <h2>Bookmark</h2>
+  <% @list.bookmarks.each do |bookmark| %>
+  <p>
+    <img src = "<%= bookmark.movie.poster_url %>" width="100" alt= "movie image"/>
+    <p class="m-3"><%= bookmark.movie.title %></p>
+    <p class="m-3"><%= bookmark.movie.overview %></p>
+    <p class="m-3"><%= bookmark.movie.rating %></p>
+    <p class="m-3"><strong>commentaire : </strong><%= bookmark.comment %></p>
+  <%= link_to "Delete", bookmark_path(bookmark), class: "btn btn-danger",
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+  </p>
+  <% end %>
+
+  <div>
+  <%= link_to "New bookmark", new_list_bookmark_path(@list[:id]), class: "btn btn-primary" %>
+  <%=link_to "home", lists_path, class: "btn btn-primary" %>
+  </div>
+</div>
