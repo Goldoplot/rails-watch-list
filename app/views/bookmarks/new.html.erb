@@ -4,6 +4,6 @@
   <%= f.input :comment %>
   <%= f.association :movie, prompt: "Select a movie", input_html: {data: {controller: "tom-select"}} %>
   <%= f.submit class: "btn btn-flat" %>
-  <%=link_to "home", lists_path, class: "btn btn-primary" %>
+  <%=link_to "home", root_path, class: "btn btn-primary" %>
 <% end %>
 </div>
